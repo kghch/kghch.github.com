@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Welcome!
-tagline: Blog Of WangHan
+tagline: 九行豆角
 ---
 {% include JB/setup %}
 
