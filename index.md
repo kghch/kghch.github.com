@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 九行豆角
+title: Blog
 ---
 {% include JB/setup %}
 
