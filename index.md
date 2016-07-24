@@ -1,6 +1,7 @@
 ---
 layout: page
-title: 九行豆角
+title: Have fun
+tagline: :)
 ---
 {% include JB/setup %}
 
