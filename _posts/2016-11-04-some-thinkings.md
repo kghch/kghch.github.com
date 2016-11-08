@@ -5,7 +5,7 @@ category: thinking
 ---
 {% include JB/setup %}
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=4237554&auto=1&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=4237554&auto=1&height=66"></iframe>
 
 晚上在笔记本装Proxifier安装失败，顺便把网络设置全搞脏了，各种解决方案无果，正在重装系统中，心情有点烦躁，先平复下。
 
