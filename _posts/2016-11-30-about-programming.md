@@ -11,6 +11,7 @@ category: thinking
 但是近两个月我会focus on Python，目前只是用框架照猫画虎的阶段，对于真正理解还有些距离。
 
 最近看python，总结了目前认知中这门语言的特点：
+
 1. all things are objects， 我想这导致了变量的dynamic type；
 2. class中的self，这好像不算特点，`php`好像也有？
 3. magic methods，对override方法实现自己的需求很方便；
