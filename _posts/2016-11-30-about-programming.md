@@ -12,11 +12,11 @@ category: thinking
 
 最近看python，总结了目前认知中这门语言的特点：
 
-1. all things are objects， 我想这导致了变量的dynamic type；
+1. all things are objects， 我想这导致了变量的dynamic type
 2. class中的self，这好像不算特点，`php`好像也有？
-3. magic methods，对override方法实现自己的需求很方便；
-4. @decoration, wrapper用来加个日志什么的很方便，大概是属于高级用法了；
-5. coroutine，好像是python3中新加入的特性，在同一个线程内部做异步，性能提升很多，这种基于yield和生成器的用法，看皮毛还可以看懂，深入理解就比较费脑筋了；
+3. magic methods，对override方法实现自己的需求很方便
+4. @decoration, wrapper用来加个日志什么的很方便，大概是属于高级用法了
+5. coroutine，好像是python3中新加入的特性，在同一个线程内部做异步，性能提升很多，这种基于yield和生成器的用法，看皮毛还可以看懂，深入理解就比较费脑筋了
 
 如果是做web应用，那么几乎无一例外的绕不开Django, Flask, Tornado, web.py等框架，在实验室的小项目中我用web.py做了一个请求API的web应用，当时考虑的是，没什么需求，越简单越容易上手即可，所以web.py这个小框架脱颖而出，
 虽然小，但是基本上web框架的一切都涵盖了，WSGI、路由处理、数据库交互、模板引擎，再配合上从某API请求来的数据，这就是我的第一个web应用。后来浏览到Flask，应该是众多框架里top2的选择，还没来得及细看，不过对于只是简单
