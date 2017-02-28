@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 我目前使用的同步工具
-category: tools
+category: others
 ---
 {% include JB/setup %}
 

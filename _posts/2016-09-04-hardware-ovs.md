@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 让物理服务器变成OvS
-category: openvswitch
+category: tech
 ---
 {% include JB/setup %}
 
