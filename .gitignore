@@ -1,2 +1,15 @@
-_site
-.sass-cache
+*.pyc
+.idea/*
+.idea
+.idea/*.*
+
+_site/*
+_theme_packages/*
+
+Thumbs.db
+.DS_Store
+
+!.gitkeep
+
+.rbenv-version
+.rvmrc

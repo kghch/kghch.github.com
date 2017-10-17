@@ -1,51 +1,40 @@
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kronik3r/daktilo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# Jekyll-Bootstrap
 
-# Daktilo
-Daktilo is a [Jekyll](jekyllrb.com) theme with a minimal design inspired from typewriters.
+The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
 
-# More info and Live preview
-[Click here](http://daktilo.github.io/) to see the theme in action.
+## Usage
 
-# Features
-- Fully responsive
-- [Disqus](https://disqus.com/) integration for comments.
-- Google Analytics integration.
-- Syntax Highlighter (using [highlight.js](https://highlightjs.org/)).
-- Support for categories.
-- Font-Awesome Icons.
-- Optimized for SEO.
-- Coolest [404 page ever](http://electrik-frog.com/daktilo/404.html).
+For all usage and documentation please see: <http://jekyllbootstrap.com>
 
-# How to use it
-Start by cloning the repository, then check the `_config.yml` file and change it accordingly.
-Note that the `title` property is what will be displayed as logo.
+## Version
 
-Finally execute `jekyll serve --watch` and head to [localhost:4000](http://127.0.0.1:4000) to see the result.
+0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
 
-# Using categories
-Categories are little bit tricky. Please make sure to do the following for each category:
+**NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
+However, the actual API has not changed at all.
+You might want to run 0.3.0 in a branch to make sure you are ok with the theme design changes.
 
-- Create a file within `categories` folder with the name of your category
-For example let's say that we have a category called `An Awesome Category` you will need to add an `an-awesome-category.html` file with this content:
+## Contributing
 
-``` html
----
-layout: category
-category: an-awesome-category
-permalink: /categories/an-awesome-category/
----
 
-```
+To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
+This is very important as it allows me to accept your pull request without having to publish a public version release.
 
-- Create an entry inside `_data/categories.yml`
+Small, atomic Features, bugs, etc.
+Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.
+Please rebase as often as possible when working.
+Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
 
-``` html
-- slug: an-awesome-category
-  name: An Awesome Category
-```
+For Big Features or major API extensions/edits:
+This is the one case where I'll accept pull-requests based off the master branch.
+This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
+Translation : it might take a bit longer so please be patient! (but sincerely thank you).
 
-- Then you will see it in the footer in the `Explore` section.
+**Jekyll-Bootstrap Documentation Website.**
 
-# License
+The documentation website at <http://jekyllbootstrap.com> is maintained at https://github.com/plusjade/jekyllbootstrap.com
 
-The contents of this repository is licensed under [The MIT License.](https://opensource.org/licenses/MIT)
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
