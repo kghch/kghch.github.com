@@ -1,8 +1,9 @@
----
-layout: default
----
-{% include page/title.html %}
+<div class="page-header">
+  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+</div>
 
-{{ content }}
-
-{% include page/explore.html %}
+<div class="row">
+  <div class="col-xs-12">
+    {{ content }}
+  </div>
+</div>
