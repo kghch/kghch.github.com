@@ -1,7 +1,7 @@
 ---
 layout: post
-title: AQS探索
-category: tech
+title: jdk-AQS探索
+category: jdk
 ---
 {% include JB/setup %}
 

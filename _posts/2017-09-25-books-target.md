@@ -1,7 +1,7 @@
 ---
 layout: post
 title: books target
-category: skillsUp
+category: reading
 ---
 {% include JB/setup %}
 
@@ -9,7 +9,9 @@ category: skillsUp
 
 - [ ] 操作系统真象还原。 700页+，先粗读一遍。两个月。ddl 2017.11.30
 - [x] 深入理解JVM。300页+。已粗读一遍。@2017.10.13
-- [ ] JDK常用包的源码。
+- [ ] java并发编程实战。扫过一遍，不推荐，概念性太多
+- [ ] JDK源码
+- [ ] Unix网络编程
 - [ ] Effective Java。曾扫过前几章。
 - ...
 
