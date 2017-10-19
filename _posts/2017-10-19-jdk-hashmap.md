@@ -41,6 +41,6 @@ Node类，实现了Map.Entry接口，把 <K, V>封装起来，构成Node链表�
 
 ***
 
-注意到，HashMap的实现中，包括Node[] table本身，entrySet还有很多字段，都被声明为**`transient`**，这里有一篇(可能有用的解答)[https://segmentfault.com/q/1010000000630486]，也就是出于两个原因：
+注意到，HashMap的实现中，包括Node[] table本身，entrySet还有很多字段，都被声明为**`transient`**，这里有一篇[可能有用的解答](https://segmentfault.com/q/1010000000630486)，也就是出于两个原因：
 1. 不同JVM有不同的hash实现，为了防止跨JVM的时候同一个字符串分布在不同位置，要阻止其序列化和反序列化。
 2. 效率。因为HashMap本质是存储key-value，那么其他的一切空间都只是辅助。
