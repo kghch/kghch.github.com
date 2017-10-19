@@ -1,7 +1,7 @@
 ---
 layout: post
 title: books target
-category: skillsUp
+category: reading
 ---
 {% include JB/setup %}
 
