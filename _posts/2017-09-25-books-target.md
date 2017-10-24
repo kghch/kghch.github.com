@@ -11,6 +11,7 @@ category: reading
 - [x] 深入理解JVM。300页+。已粗读一遍。@2017.10.13
 - [ ] JDK常用包的源码。
 - [ ] Effective Java。曾扫过前几章。
+- [ ] Linux命令行与shell脚本大全。
 - ...
 
 以上，先看完，多输入些基础。
