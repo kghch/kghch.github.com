@@ -1,7 +1,7 @@
 ---
 layout: page
 title: blank
-tagline: 如果我不去规划我三十岁的人生，每天刷知乎微博朋友圈，无聊而舒服，三十岁时我又能得到什么呢？
+tagline: 三十而立，四十不惑，五十知天命
 ---
 {% include JB/setup %}
 
