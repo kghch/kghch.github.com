@@ -9,13 +9,14 @@ highlighter: rouge
 # so be sure to set them if your theme uses them.
 #
 theme: jekyll-theme-minimal
-description: nothing
+
 title : 九行豆角
 tagline: 三十而立，四十不惑，五十知天命
 author :
   name : hanhan
   email : wanghan0307@gmail.com
   github : kghch
+  douban: cowpeas9
   
 
 # The production_url is only used when full-domain names are needed
