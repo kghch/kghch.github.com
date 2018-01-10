@@ -1,6 +1,5 @@
 ---
 layout: page
-title: blank
 tagline: 三十而立，四十不惑，五十知天命
 ---
 {% include JB/setup %}
