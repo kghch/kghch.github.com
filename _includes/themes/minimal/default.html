@@ -21,14 +21,14 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.tagline }}</p>
-        <p class="view"><a href="{{ HOME_PATH }}">Home</a><br>
+        <h2>{{ site.title }}</h2>
+        <p><small>{{ site.tagline }}</small></p>
+        <p class="view"><small><a href="{{ HOME_PATH }}">Home</a><br>
           <a href="/archive.html">Archive</a><br>
           <a href="/tags.html">Tags</a><br>
-          <a href="/about.html">About</a></p>
+          <a href="/about.html">About</a></small></p>
         <h3>Follow me</h3>
-		<p class="view">
+		<p class="view"><small>
 		{% if site.author.twitter %}
 			<a href="https://twitter.com/{{ site.author.twitter }}">Twitter</a><br>
 		{% endif %}
@@ -39,12 +39,12 @@
 			<a href="https://github.com/{{ site.author.github }}">Github</a><br>
 		{% endif %}
     {% if site.author.douban %}
-      <a href="https://www.douban.com/people/{{ site.author.douban }}">豆瓣</a><br>
+      <a href="https://www.douban.com/people/{{ site.author.douban }}">douban</a><br>
     {% endif %}
 		{% if site.author.linkedin %}
 			<a href="http://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a><br>
 		{% endif %}
-		</p>
+		</small></p>
       </header>
       <section>
         {{ content }}
