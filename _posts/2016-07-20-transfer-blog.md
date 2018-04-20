@@ -3,7 +3,6 @@ layout: post
 title: 博客迁移
 category: others
 ---
-{% include JB/setup %}
 
 #### 博客迁移
 

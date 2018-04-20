@@ -3,7 +3,6 @@ layout: post
 title: 这个夏天
 category: thinking
 ---
-{% include JB/setup %}
 
 我向来是比较喜欢夏天的，因为感觉自由些，而且还有假期的加持，虽然这是种错觉。现在是2017年，离秋天只有一个月的距离。总结下至今的夏天。
 

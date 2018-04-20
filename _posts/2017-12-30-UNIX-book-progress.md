@@ -3,7 +3,6 @@ layout: post
 title: UNIX环境高级编程-读书进度记录
 category: reading
 ---
-{% include JB/setup %}
 
 ## 第1章 UNIX基础知识 
 

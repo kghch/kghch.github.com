@@ -3,7 +3,6 @@ layout: post
 title: Go语言学习笔记
 category: tech
 ---
-{% include JB/setup %}
 
 最近零星地看了些go语言的语法，起初看的是[《Go语言编程》](https://book.douban.com/subject/11577300/)，不推荐，结构不清晰，讲述的很粗糙且口语化。后来看了[《Go语言实战》](https://book.douban.com/subject/27015617/)，比七牛云那本读起来舒服很多，尤其对我这种入门级选手而言。还有一本《Go程序设计语言》在路上，期待能带来更详实的解读。
 

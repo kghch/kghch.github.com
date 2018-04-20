@@ -3,7 +3,6 @@ layout: post
 title: jdk-LinkedHashMap浅显探索
 category: jdk
 ---
-{% include JB/setup %}
 
 LinkedHashMap是继承自HashMap的子类，功能上是迭代遍历时按插入顺序（默认）或LRU顺序，这个由accessOrder这个参数初始化LinkedHashMap时指定。
 

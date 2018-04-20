@@ -3,7 +3,7 @@ layout: post
 title: 2016–2017 Web Salary Survey
 category: others
 ---
-{% include JB/setup %}
+
 
 来自O'REILLY今天邮件给我的一份推送，关于web开发的工资调查，这里简单翻译并总结下。原文在[这儿](https://www.oreilly.com/ideas/2016-2017-web-salary-survey?imm_mid=0f14bc&cmp=em-web-free-lp-flca17_nurture_em4_web_salary_survey)。
 

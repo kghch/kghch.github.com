@@ -3,7 +3,6 @@ layout: post
 title: Go defer的陷阱
 category: tech
 ---
-{% include JB/setup %}
 
 起因是，今晚公司的内部分享中讲到了go defer的问题，引起了很多人的争讨。用事实说话，我整理了下比较容易出困惑的点。
 

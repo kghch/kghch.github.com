@@ -3,7 +3,6 @@ layout: post
 title: jdk-HashMap浅显探索
 category: jdk
 ---
-{% include JB/setup %}
 
 本文探索最常用到的方法的基本实现，其中关于红黑树的各种操作，这里不涉及。
 

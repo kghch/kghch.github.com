@@ -3,7 +3,7 @@ layout: post
 title: Tornado中的chatdemo分析
 category: tech
 ---
-{% include JB/setup %}
+
 
 [源码地址](https://github.com/tornadoweb/tornado/tree/master/demos/chat)
 

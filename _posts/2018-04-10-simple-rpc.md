@@ -3,8 +3,6 @@ layout: post
 title: 简单RPC
 category: tech
 ---
-{% include JB/setup %}
-
 
 ![sRPC主要部件图](https://i.loli.net/2018/04/10/5accbaabe99e4.jpg)
 

@@ -3,7 +3,6 @@ layout: post
 title: jdk-AQS探索
 category: jdk
 ---
-{% include JB/setup %}
 
 AQS是一个基于FIFO的框架，我是在ReentrantLock的实现中去理解AQS的acquire过程。这里先看下AQS的acquire，再对ReentrantLock的公平锁/非公平锁尝试分析。
 

@@ -3,7 +3,6 @@ layout: post
 title: 让物理服务器变成OvS
 category: openvswitch
 ---
-{% include JB/setup %}
 
 OpenvSwitch是个虚拟服务，但是可以通过将OvS与Host上的物理网卡绑定以获得一个搭载openvswitch功能的物理“交换机”。
 
