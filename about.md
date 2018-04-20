@@ -5,11 +5,8 @@ author: "Chester"
 permalink: /about/
 ---
 
-A friend of mine writes short stories. One sunny day, I asked if he wanted a website to showcase his works and he agreed. I decided to use GitHub Pages to host his site. That way he wouldn't have to buy a domain and a server.
+我即将硕士毕业，选择加入一家互联网公司做开发，目前在完成学生身份到职场身份的转变。未来的两年对我而言是职业生涯的关键点，希望能够交出满意的答卷。
 
-While doing some research up on GitHub Pages, I accidentally chanced upon this _simple, blog-aware, static site generator_ called [Jekyll](https://jekyllrb.com/) which works really well with GitHub Pages. I figured it would do just fine for my friend and I set about searching for a pretty theme. I wanted a theme with a _book-ish_ vibe. Unfortunately, most of the themes were too modern. Eventually, I caved and begun working on my own theme. With the help of [Poole](https://github.com/poole/poole), the Jekyll Butler, I was able to build **Tale**.
+目前来看，终极目标是吃喝玩乐，所以很注重个人健康，日常在尽量保持规律锻炼，以对抗程序员职业的不良习惯带来的负面影响。Health matters.
 
-## Contribute
-Feel free to create an issue or make a pull request on [GitHub](https://github.com/chesterhow/tale).
-
-Thanks for reading!
+最近想要完成新加坡、马来西亚的毕业游，正在规划中。
