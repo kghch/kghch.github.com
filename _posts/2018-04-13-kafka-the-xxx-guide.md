@@ -37,7 +37,7 @@ Replication：指partition的replication，主要为了数据的容灾。
 
 生产者的多种不同需求：能否忍受消息丢失？能否忍受消息重复？是否有严格的latency要求？即常见的At most once, At least once, Exactly once 三种需求。
 
-![kafka producer架构.jpg](https://i.loli.net/2018/04/28/5ae429f61f0d7.jpg)
+![kafka producer架构.jpg](https://i.loli.net/2018/04/28/5ae429f63ba54.jpg)
 
 发送步骤：
 
@@ -78,7 +78,7 @@ Parition的策略也可以自己定制。
 
 Rebalance，重新调整的是一个consumer group中的哪些consumer消费哪些partition。
 
-![consumers and partitions.jpg](https://i.loli.net/2018/04/28/5ae429f63ba54.jpg)
+![consumers and partitions.jpg](https://i.loli.net/2018/04/28/5ae429f62a0e8.jpg)
 
 1.  对于一个topic，其里面有N个partition，当consumer group中consumer的数量>N时，会有consumer处于空闲状态，得不到数据。所以当producer速率>consumer时，增加consumer数量是好办法，但是consumer数量上限不要超过partition分区数量，不然纯属浪费。意味着，一个partition不会被一个consumer group中的多个consumers同时消费。
 2.  划分consumer group的概念是为了将应用程序-consumer group对应起来，让每个应用程序可以获取topic中的所有信息，即从所有partition而非一个子集中获取信息。
@@ -203,7 +203,7 @@ consumer几个重要的参数配置：
 kafka内置的跨集群复制工具：MirrorMaker。
 
 ![hub-and-spokes架构.jpg](https://i.loli.net/2018/04/28/5ae429f62a0c2.jpg)
-![双活架构.jpg](https://i.loli.net/2018/04/28/5ae429f62a0e8.jpg)
+![双活架构.jpg](https://i.loli.net/2018/04/28/5ae429f61f0d7.jpg)
 ![主备架构.jpg](https://i.loli.net/2018/04/28/5ae429f620efd.jpg)
 
 1.  hub-and-spokes架构。适用场景：一个中心kafka集群对应多个本地kafka集群。不足：一个DC的程序无法访问另一个DC的数据；本地DC的程序无法访问到全局数据。
