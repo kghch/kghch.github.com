@@ -15,11 +15,11 @@ producer发送流程：
 
 硬件选择：
 
-⁃   硬盘吞吐量，最直接影响producer clients的性能。大多数producer clients都至少等待一个broker的确认，所以磁盘写速度越高意味消息发送吞吐率越高。
-⁃   硬盘容量，可以存足够时间的messages。
-⁃   内存，consumer一般从partition末端读取，[它不会跟生产者产生消息的时间差距很大，在此情况下，消息一般都是直接缓存在page cache，消费者直接从page cache读取]。page cache（页缓存）需要使用内存，kafka broker上最好不要部署其它应用，主要是为了避免共享page cache。
-⁃   网络，kafka会占用很大的网络带宽，多consumer时，考虑kafka在传输和读取上的压力。
-⁃   CPU，相对于磁盘、内存而言不是很重要。producer产生的消息会被压缩存储，这部分需要用到CPU能力。
+* 硬盘吞吐量，最直接影响producer clients的性能。大多数producer clients都至少等待一个broker的确认，所以磁盘写速度越高意味消息发送吞吐率越高。
+* 硬盘容量，可以存足够时间的messages。
+* 内存，consumer一般从partition末端读取，[它不会跟生产者产生消息的时间差距很大，在此情况下，消息一般都是直接缓存在page cache，消费者直接从page cache读取]。page cache（页缓存）需要使用内存，kafka broker上最好不要部署其它应用，主要是为了避免共享page cache。
+* 网络，kafka会占用很大的网络带宽，多consumer时，考虑kafka在传输和读取上的压力。
+* CPU，相对于磁盘、内存而言不是很重要。producer产生的消息会被压缩存储，这部分需要用到CPU能力。
 综上，kafka broker部署的机器需要是：大内存、SSD/HDD多路径或HDD磁盘阵列。
 
 Kafka clusters：一般是指多个broker，主要为了分担负载。
@@ -97,9 +97,9 @@ Rebalance，重新调整的是一个consumer group中的哪些consumer消费哪�
 
 commit an offset
 
-⁃   目的：更新parition中位置。
-⁃   kafka中有个特殊的主题：`__consumer_offsets`，记录了每个partition的committed offset。当consumer 崩溃/退出/新加入时，触发rebalance过程，每个consumer可能被分配到一个新的partition，为了让consumer知道从哪开始继续消费，需要读取每个partition的最新committed offset，并从这个offset继续。
-⁃   在rebalance后，因为patiton-consumer的重新分配，可能导致“重复消费”/“消息丢失”的情况？❓重复消费可理解，为何会丢失，不是至少有consumer消费到了才会提交commit吗。
+*   目的：更新parition中位置。
+*   kafka中有个特殊的主题：`__consumer_offsets`，记录了每个partition的committed offset。当consumer 崩溃/退出/新加入时，触发rebalance过程，每个consumer可能被分配到一个新的partition，为了让consumer知道从哪开始继续消费，需要读取每个partition的最新committed offset，并从这个offset继续。
+*   在rebalance后，因为patiton-consumer的重新分配，可能导致“重复消费”/“消息丢失”的情况？❓重复消费可理解，为何会丢失，不是至少有consumer消费到了才会提交commit吗。
 
 commit offset的几种方式：
 
@@ -127,38 +127,38 @@ The Controller：是一个特殊的kafka broker，额外负责选举partition le
 
 Replication
 
-⁃   对partition而言，有leader & followers。follower的作用只是与leader保持同步做backup，而不会接受客户端请求。
-⁃   followers给leader发Fetch请求，以拿到offset。
-⁃   Leader会有某种策略判断follower是不是还在in-sync，通常是看某follower在10s内是否有请求，或10s内是否跟上了最近的请求。如果判断某follower没有保持同步，那这个follower失去了在下次发生灾难时成为leader的资格。
+*   对partition而言，有leader & followers。follower的作用只是与leader保持同步做backup，而不会接受客户端请求。
+*   followers给leader发Fetch请求，以拿到offset。
+*   Leader会有某种策略判断follower是不是还在in-sync，通常是看某follower在10s内是否有请求，或10s内是否跟上了最近的请求。如果判断某follower没有保持同步，那这个follower失去了在下次发生灾难时成为leader的资格。
 
 Request Processing
 
-⁃   Kafka使用基于TCP的二进制协议，指定了请求格式和brokers的响应格式。
-⁃   在请求头部中包括：
-⁃   请求类型（也叫API key）
-⁃   请求版本
-⁃   correlation ID
-⁃   Client ID
-⁃   对broker监听的每个端口，broker运行一个acceptor线程。acceptor线程会创建连接并将转给processor线程处理，processor线程可以配置多个。
-⁃   请求类型（请求由broker接收）：
-⁃   Produce requests。由producer发送的。
-⁃   Fetch requests。由consumer和follower partitions发送的
-⁃   Metadata requests。
-⁃   Other requests。
-⁃   Produce requests和fetch requests必须发到leader partition中。如果一个broker收到请求，但leader在另一个broker中，会返回给client“Not a Leader for Partition”的错误。Kafaka客户端会负责把produce和fetch请求发到包含leader partition的broker中。
-⁃   Kafka客户端通过metadata请求明确发给哪个broker。metadata响应中包含了partition分布信息，Leader partition信息等，并且所有的broker都有 metadata cache存储这个信息。client可以发给每个broker，获取一个全局信息缓存下来+定期/不定期刷新，然后决定发到哪个broker中。
-⁃   produce requests，broker可设置ack=0/1/all。0：只要消息发出去了，就认为被写入成功；1：只要leader ack，就认为写入成功；2：全部partition都要ack，才认为写入成功。broker收到produce request后，将消息写入文件系统buffer，就ack，buffer会不定期被flush到磁盘中。
-⁃   Fetch requests，consumer指定topic, offset, 返回数据的上限Limit和下限limit（上限limit是防止broker返回的数据太大以至consumer内存不够存；下限limit是为了减轻CPU和网络开销）。kafka使用零拷贝将信息发送到客户端。零拷贝的意思是：将 文件/linux文件系统缓存 中的消息直接发送到网络通道，而无需任何中间缓冲区（一般只本地缓存）。零拷贝性能提升很多。大多数时候consumer只能消费被所有in-sync replias都复制过的数据，而不是leader partition上的所有数据，否则会导致unsafe，这就是所谓的HW（高水位）。
-⁃   Other requests，brokers之间发送用的，很多种。
+*   Kafka使用基于TCP的二进制协议，指定了请求格式和brokers的响应格式。
+*   在请求头部中包括：
+*   请求类型（也叫API key）
+*   请求版本
+*   correlation ID
+*   Client ID
+*   对broker监听的每个端口，broker运行一个acceptor线程。acceptor线程会创建连接并将转给processor线程处理，processor线程可以配置多个。
+*   请求类型（请求由broker接收）：
+*   Produce requests。由producer发送的。
+*   Fetch requests。由consumer和follower partitions发送的
+*   Metadata requests。
+*   Other requests。
+*   Produce requests和fetch requests必须发到leader partition中。如果一个broker收到请求，但leader在另一个broker中，会返回给client“Not a Leader for Partition”的错误。Kafaka客户端会负责把produce和fetch请求发到包含leader partition的broker中。
+*   Kafka客户端通过metadata请求明确发给哪个broker。metadata响应中包含了partition分布信息，Leader partition信息等，并且所有的broker都有 metadata cache存储这个信息。client可以发给每个broker，获取一个全局信息缓存下来+定期/不定期刷新，然后决定发到哪个broker中。
+*   produce requests，broker可设置ack=0/1/all。0：只要消息发出去了，就认为被写入成功；1：只要leader ack，就认为写入成功；2：全部partition都要ack，才认为写入成功。broker收到produce request后，将消息写入文件系统buffer，就ack，buffer会不定期被flush到磁盘中。
+*   Fetch requests，consumer指定topic, offset, 返回数据的上限Limit和下限limit（上限limit是防止broker返回的数据太大以至consumer内存不够存；下限limit是为了减轻CPU和网络开销）。kafka使用零拷贝将信息发送到客户端。零拷贝的意思是：将 文件/linux文件系统缓存 中的消息直接发送到网络通道，而无需任何中间缓冲区（一般只本地缓存）。零拷贝性能提升很多。大多数时候consumer只能消费被所有in-sync replias都复制过的数据，而不是leader partition上的所有数据，否则会导致unsafe，这就是所谓的HW（高水位）。
+*   Other requests，brokers之间发送用的，很多种。
 
 物理存储
 存储的基本单位是partition，partition不可再分割。
 
-⁃   分区分配。基本就是考虑在Host上分布的均衡，以及考虑机架的影响，如果有多机架的话，不要全放一个机架上。
-⁃   文件管理。kafka不会永久地保存数据，或等待所有消费者消费后才删除。可配置最大保留时间和最大数据保留量。由于从一个大文件中删除一部分是费时且易出错的，所以把每个partition分成一系列segments。每个partition中的每个segment都会有一个open file handle，因此open file handles数量会非常高，OS必须做相应调整。
-⁃   文件格式。每个segment被存在单独的文件中，里面存储了kafka消息和偏移量。文件格式与producer->broker和broker->consumer文件格式相同，主要是为了零拷贝优化。
-⁃   索引。kafka允许从特定offset进行消费，意味着必须快速定位到此offset并读取。为此，kafka为每个partition构建索引。segment也有索引，以便删除用。
-⁃   压缩。可设置保留策略为delete/compact。delete就是日常策略，会删除比retention time更老的事件；compact策略中，对topic中某特定的key，只会保留最新值。如果topic不包含key，那么compact策略会失效。
+*   分区分配。基本就是考虑在Host上分布的均衡，以及考虑机架的影响，如果有多机架的话，不要全放一个机架上。
+*   文件管理。kafka不会永久地保存数据，或等待所有消费者消费后才删除。可配置最大保留时间和最大数据保留量。由于从一个大文件中删除一部分是费时且易出错的，所以把每个partition分成一系列segments。每个partition中的每个segment都会有一个open file handle，因此open file handles数量会非常高，OS必须做相应调整。
+*   文件格式。每个segment被存在单独的文件中，里面存储了kafka消息和偏移量。文件格式与producer->broker和broker->consumer文件格式相同，主要是为了零拷贝优化。
+*   索引。kafka允许从特定offset进行消费，意味着必须快速定位到此offset并读取。为此，kafka为每个partition构建索引。segment也有索引，以便删除用。
+*   压缩。可设置保留策略为delete/compact。delete就是日常策略，会删除比retention time更老的事件；compact策略中，对topic中某特定的key，只会保留最新值。如果topic不包含key，那么compact策略会失效。
 
 ## 第六章 Reliable Data Delivery
 
