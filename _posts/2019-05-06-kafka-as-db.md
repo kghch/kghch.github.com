@@ -3,11 +3,12 @@ layout: post
 title: Is Kafka a Database 笔记
 category: tech
 ---
-DDIA的作者Martin Kleppmann去年在Kafka Summit做的演讲“ Is Kafka a Database？”， 时长28分钟： https://www.youtube.com/watch?v=v2RJQELoM6Y
+DDIA的作者Martin Kleppmann去年在Kafka Summit做的演讲“ Is Kafka a Database？”， 时长28分钟，[视频链接](https://www.youtube.com/watch?v=v2RJQELoM6Y)
 
-（标题吸睛，其实讲的是kafka如何实现ACID能力）
+（*标题吸睛，其实讲的是kafka如何实现ACID能力*）
 
 是什么让DB之所以成为DB的？ ACID ，从这个角度看
+
     * A, all or nothing，描述的是错误处理能力。2PC 两阶段提交 能保证，但并非所有系统都能兼容2PC。
         * 譬如，更新一条记录 同时到 ： web server, redis, mysql . 
         * kafka如何做到？ 生成一个描述update的事件发往kafka，下游web server, redis, mysql 隶属于3个consumer group分别监听
