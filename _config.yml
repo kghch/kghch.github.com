@@ -1,5 +1,5 @@
 # Site settings
-title:          九行豆角
+title:          观雨小粉丝
 description:    "Minimal Jekyll theme for storytellers"
 baseurl:        "/"
 url:            "https://kghch.github.io"
@@ -7,7 +7,7 @@ url:            "https://kghch.github.io"
 # Author
 author:
   name:         hanhan
-  url:          https://hhan.site
+  url:          https://kghch.github.io 
   email:        wanghan0307@gmail.com
 
 # Build settings
